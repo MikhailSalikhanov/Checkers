@@ -1,24 +1,23 @@
-import logo from './logo.svg';
+import { useSelector } from 'react-redux';
 import './App.css';
+import { BoardCell } from './Board';
+
 
 function App() {
+  const charsArray = useSelector(state=>state.charsArray)
+  let renderBoard = []
+  for (let i = 0; i < charsArray.length; i++) {
+    renderBoard[i] = <BoardCell id={i} figure={charsArray[i]} />
+      }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <div className="board">
+        {renderBoard}
+      </div>
+      <div className="fen">
+          {charsArray.join('')}
+      </div>
+    </>
   );
 }
 
