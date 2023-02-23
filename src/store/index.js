@@ -10,17 +10,19 @@ const defaultState = {
   takenId: 100
 }
 
+export const change = payload => ({type: "change", payload})
 export const take = payload => ({type: "take", payload})
 export const put = payload => ({type: "put", payload})
   
 function fenReducer(state = defaultState, action) {
   switch (action.type) {
+    case 'change':
+      return {
+        ...state, charsArray: action.payload.fen.split('')}
     case 'take':
-      document.getElementById(action.payload.id).classList.add("red_border")
       return {
         ...state, takenFigure: action.payload.figure, takenId: action.payload.id}
     case 'put':
-      document.getElementById(action.payload.takenId).classList.remove("red_border")
       return {
         ...state, takenFigure: "", charsArray: state.charsArray.map((element, index) => {        
           if (index == action.payload.id) {       

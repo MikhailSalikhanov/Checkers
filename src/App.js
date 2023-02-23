@@ -1,6 +1,7 @@
 import { useSelector } from 'react-redux';
 import './App.css';
 import { BoardCell } from './Board';
+import { FenField } from './FenField';
 
 
 function App() {
@@ -14,8 +15,8 @@ function App() {
       <div className="board">
         {renderBoard}
       </div>
-      <div className="fen">
-          {charsArray.join('')}
+      <div>
+        <FenField/>
       </div>
     </>
   );

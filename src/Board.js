@@ -26,28 +26,36 @@ export function BoardCell(props) {
             return (
                 <div className={colorsArray[props.id] == "w" ? "cell white" : "cell black"}
                     id={props.id} onClick={() => handleClick(props.id)}>
+                    <div className={(takenFigure && takenId == props.id) ? "red_border cell_inner" : "cell_inner"}>
                         <img src={white} />
+                    </div>
                 </div>
             )
           case 'W':
             return (
-                <div className={colorsArray[props.id] == "w" ? "cell white king" : "cell black king"}
+                <div className={colorsArray[props.id] == "w" ? "cell white" : "cell black"}
                     id={props.id} onClick={() => handleClick(props.id)}>
+                    <div className={(takenFigure && takenId == props.id) ? "red_border cell_inner" : "cell_inner"}>
                         <img src={whiteKing} />
+                    </div>
                 </div>
             )
           case 'b':
             return (
                 <div className={colorsArray[props.id] == "w" ? "cell white" : "cell black"}
                     id={props.id} onClick={() => handleClick(props.id)}>
+                    <div className={(takenFigure && takenId == props.id) ? "red_border cell_inner" : "cell_inner"}>
                         <img src={black} />
+                    </div>
                 </div>
             )
           case 'B':
             return (
-                <div className={colorsArray[props.id] == "w" ? "cell white king" : "cell black king"}
+                <div className={colorsArray[props.id] == "w" ? "cell white" : "cell black"}
                     id={props.id} onClick={() => handleClick(props.id)}>
+                    <div className={(takenFigure && takenId == props.id) ? "red_border cell_inner" : "cell_inner"}>
                         <img src={blackKing} />
+                    </div>
                 </div>
             )
           case '.':
@@ -57,6 +65,11 @@ export function BoardCell(props) {
                 </div>
             )
           default:
-            break;
-        }
+            return (
+                <div className={colorsArray[props.id] == "w" ? "cell white" : "cell black"}
+                    id={props.id} onClick={() => handleClick(props.id)}>
+                    ???
+                </div>
+            )
+    }
 }
