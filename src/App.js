@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux';
-import './App.css';
+import './App.scss';
 import { BoardCell } from './Board';
 import { FenField } from './FenField';
 
