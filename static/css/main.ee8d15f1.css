@@ -1,0 +1,2 @@
+.fen{background-color:#b6b6b6;font-size:24px;margin-top:20px;text-align:center;width:580px}.board{display:flex;flex-wrap:wrap;width:600px}.board .cell{align-items:center;border:2px solid #000;display:flex;height:70px;justify-content:center;position:relative;text-align:center;width:70px}.board .cell img{width:100%}.board .cell .red_border{background-color:red;opacity:.5;position:absolute}.board .cell .cell_inner{height:100%;width:100%}.board .white{background-color:#f5efd1}.board .black{background-color:#007d00}
+/*# sourceMappingURL=main.ee8d15f1.css.map*/
