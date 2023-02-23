@@ -5,11 +5,11 @@ import whiteKing from './img/wk.png'
 import { useDispatch, useSelector } from 'react-redux'
 import { take, put } from './store'
 
-let colorsArray = ["w", "b", "w", "b", "w", "b", "w", "b", "b", "w","b", "w","b", "w","b", "w","w", "b", "w", "b", "w", "b", "w", "b", "b", "w","b", "w","b", "w","b", "w","w", "b", "w", "b", "w", "b", "w", "b", "b", "w","b", "w","b", "w","b", "w","w", "b", "w", "b", "w", "b", "w", "b", "b", "w","b", "w","b", "w","b", "w"]
 
 export function BoardCell(props) {
-
+    
     const dispatch = useDispatch()
+    let colorsArray = useSelector(state => state.colorsArray)
     let takenFigure = useSelector(state => state.takenFigure)
     let takenId = useSelector(state => state.takenId)
     let charsArray = useSelector(state => state.charsArray)
@@ -17,7 +17,7 @@ export function BoardCell(props) {
     const handleClick = (id) => {
         if (!takenFigure && charsArray[id] != ".") {
             dispatch(take({id, figure: charsArray[id]}))
-        } else if (takenFigure && charsArray[id] == ".") {
+        } else if (takenFigure && charsArray[id] == "." && colorsArray[id] == "b") {
             dispatch(put({id, figure: takenFigure, takenId}))
         }
     }

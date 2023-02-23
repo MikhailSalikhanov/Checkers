@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux'
-import { change } from './store'
+import { changeFen } from './store'
 
 export function FenField(props) {
 
@@ -10,7 +10,7 @@ export function FenField(props) {
         let fen = e.target.value.length >= 64
             ? e.target.value.slice(0,64)
             : e.target.value.padEnd(64, ".")        
-        dispatch(change({fen})) 
+        dispatch(changeFen({fen})) 
     }
 
     return (
