@@ -5,14 +5,13 @@ let fen = ".w.w.w....w......W.b.W.............B..........b....b....b......."
 const charsArray = fen.split('');
 
 const defaultState = {
-  colorsArray: ["w", "b", "w", "b", "w", "b", "w", "b", "b", "w","b", "w","b", "w","b", "w","w", "b", "w", "b", "w", "b", "w", "b", "b", "w","b", "w","b", "w","b", "w","w", "b", "w", "b", "w", "b", "w", "b", "b", "w","b", "w","b", "w","b", "w","w", "b", "w", "b", "w", "b", "w", "b", "b", "w","b", "w","b", "w","b", "w"],
   charsArray,
   takenFigure: "",
   takenId: 100
 }
 
 export const changeFen = payload => ({type: "changeFen", payload})
-// export const changeColors = payload => ({type: "changeColors", payload})
+export const untake = payload => ({type: "untake", payload})
 export const take = payload => ({type: "take", payload})
 export const put = payload => ({type: "put", payload})
   
@@ -21,9 +20,9 @@ function fenReducer(state = defaultState, action) {
     case 'changeFen':
       return {
         ...state, charsArray: action.payload.fen.split('')}
-    // case 'changeColors':
-    //   return {
-    //     ...state, colorsArray: []}
+    case 'untake':
+      return {
+        ...state, takenFigure: "", takenId: 100}
     case 'take':
       return {
         ...state, takenFigure: action.payload.figure, takenId: action.payload.id}
